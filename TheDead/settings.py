@@ -14,7 +14,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 #Base de datos de heroku
 import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+POSTGRES_URL = "HEROKU_POSTGRESQL_MAROON_URL"
+DATABASES = {'default': dj_database_url.config(default=os.environ[POSTGRES_URL])}
 
 
 # Quick-start development settings - unsuitable for production
